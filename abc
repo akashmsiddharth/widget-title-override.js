@@ -1,0 +1,21 @@
+<script>
+  // Function to replace H tags with normal text
+  function replaceWidgetTitles() {
+    // Select all H tags within Blogger widgets
+    var widgetHeadings = document.querySelectorAll('.widget-title h1, .widget-title h2, .widget-title h3, .widget-title h4, .widget-title h5, .widget-title h6');
+    
+    // Loop through each H tag and replace it with normal text
+    for (var i = 0; i < widgetHeadings.length; i++) {
+      var widgetTitle = widgetHeadings[i];
+      var text = widgetTitle.textContent;
+      // Create a new text element
+      var newTextElement = document.createElement('span');
+      newTextElement.textContent = text;
+      // Replace the H tag with the new text element
+      widgetTitle.parentNode.replaceChild(newTextElement, widgetTitle);
+    }
+  }
+
+  // Call the function once the page has loaded
+  window.addEventListener('load', replaceWidgetTitles);
+</script>
